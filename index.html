@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anything — Wear anything.</title>
+<meta name="description" content="Esenciales honestos para moverte, crear y ser exactamente quien sos. Diseñado en Buenos Aires.">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<link rel="preconnect" href="https://cdnjs.cloudflare.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="announcement">ENVÍO GRATIS EN COMPRAS SUPERIORES A $150 <span>·</span> CAMBIOS GRATUITOS EN 30 DÍAS</div>
+
+<!-- ===== NAVBAR ===== -->
+<header class="nav-wrap">
+  <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+    <i class="fa-solid fa-bars"></i>
+  </button>
+  <a href="#inicio" class="wordmark">anything<span>.</span></a>
+  <nav class="nav-links" id="navLinks" aria-label="Navegación principal">
+    <a href="#shop">Shop</a>
+    <a href="#about">About</a>
+    <a href="#lookbook">Lookbook</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact">Contacto</a>
+  </nav>
+  <div class="nav-actions">
+    <button id="sidebarToggle" aria-label="Abrir guía de talles" aria-expanded="false">
+      <i class="fa-regular fa-compass"></i>
+    </button>
+    <button id="searchBtn" aria-label="Buscar"><i class="fa-solid fa-magnifying-glass"></i></button>
+    <input type="text" id="searchInput" class="search-input" placeholder="Buscar productos..." hidden>
+    <button aria-label="Mi cuenta"><i class="fa-regular fa-user"></i></button>
+    <button class="cart-btn" id="cartBtn" aria-label="Ver carrito">
+      <i class="fa-solid fa-bag-shopping"></i> Bag (<span id="cartCount">0</span>)
+    </button>
+  </div>
+</header>
+
+<!-- ===== SIDEBAR (obligatorio) ===== -->
+<aside class="sidebar" id="sidebar" aria-label="Guía rápida">
+  <div class="sidebar-head">
+    <span>Guía rápida</span>
+    <button id="sidebarClose" aria-label="Cerrar panel"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+
+  <div class="sidebar-block">
+    <h4>Tu bolsa</h4>
+    <p id="sidebarCartText">Todavía no agregaste productos.</p>
+  </div>
+
+  <div class="sidebar-block">
+    <h4>Categorías</h4>
+    <ul class="sidebar-links">
+      <li><a href="#shop" data-cat="Todo">Todo</a></li>
+      <li><a href="#shop" data-cat="Camperas">Camperas</a></li>
+      <li><a href="#shop" data-cat="Pantalones">Pantalones</a></li>
+    </ul>
+  </div>
+
+  <div class="sidebar-block">
+    <h4>Favoritos</h4>
+    <p id="sidebarFavText">Todavía no guardaste productos.</p>
+  </div>
+
+  <div class="sidebar-block">
+    <h4>Guía de talles</h4>
+    <table class="size-table">
+      <thead><tr><th>Talle</th><th>Pecho</th><th>Largo</th></tr></thead>
+      <tbody>
+        <tr><td>S</td><td>92 cm</td><td>68 cm</td></tr>
+        <tr><td>M</td><td>98 cm</td><td>70 cm</td></tr>
+        <tr><td>L</td><td>104 cm</td><td>72 cm</td></tr>
+        <tr><td>XL</td><td>110 cm</td><td>74 cm</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sidebar-block">
+    <h4>Seguinos</h4>
+    <div class="sidebar-social">
+      <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+    </div>
+  </div>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<main class="site-shell">
+
+  <!-- ===== HERO ===== -->
+  <section id="inicio" class="hero section-pad">
+    <div class="hero-copy">
+      <p class="eyebrow">NEW COLLECTION / 2026</p>
+      <h1>Wear<br><em>anything.</em></h1>
+      <p class="hero-text">Ropa para moverte, crear y ser exactamente quien sos. Diseñada en Buenos Aires. Hecha para todas partes.</p>
+      <a href="#shop" class="dark-button">Explorar colección <span><i class="fa-solid fa-arrow-up-right"></i></span></a>
+    </div>
+    <div class="hero-image">
+      <img src="img/anything-hero.png" alt="Modelos usando la nueva colección de Anything">
+      <span class="image-note">01 / 04 — SPRING STUDY</span>
+    </div>
+  </section>
+
+  <section class="ticker">
+    <div>ANYTHING IS POSSIBLE <span>✳</span> ANYTHING IS POSSIBLE <span>✳</span> ANYTHING IS POSSIBLE <span>✳</span></div>
+  </section>
+
+  <!-- ===== SHOP / CARDS ===== -->
+  <section id="shop" class="shop section-pad">
+    <div class="section-heading">
+      <div><p class="eyebrow">01 — THE COLLECTION</p><h2>Lo nuevo, <em>ahora.</em></h2></div>
+      <div class="filters" id="filters">
+        <button class="active" data-filter="Todo">Todo</button>
+        <button data-filter="Camperas">Camperas</button>
+        <button data-filter="Pantalones">Pantalones</button>
+      </div>
+    </div>
+    <div class="product-grid" id="productGrid"></div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="manifesto section-pad">
+    <p class="eyebrow">02 — OUR POINT OF VIEW</p>
+    <div class="manifesto-grid">
+      <h2>Menos reglas.<br><em>Más vos.</em></h2>
+      <div>
+        <p>Anything nace de una idea simple: la ropa no debería decirte quién ser. Creamos esenciales honestos, con cortes pensados y materiales que mejoran con el tiempo.</p>
+        <a href="#journal" class="text-link">Conocé nuestra historia <i class="fa-solid fa-arrow-up-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO / AUDIO (obligatorio) ===== -->
+  <section id="lookbook" class="lookbook section-pad">
+    <p class="eyebrow">03 — EL LOOKBOOK EN MOVIMIENTO</p>
+    <div class="lookbook-grid">
+      <div class="lookbook-video">
+        <video id="lookVideo" controls loop muted playsinline poster="img/anything-hero.png">
+          <source src="video/lookbook.mp4" type="video/mp4">
+          Tu navegador no soporta el elemento de video.
+        </video>
+        <button id="playPauseBtn" class="video-btn"><i class="fa-solid fa-pause"></i> Pausar</button>
+      </div>
+      <div class="lookbook-copy">
+        <h2>La colección, <em>en escena.</em></h2>
+        <p>Un recorrido breve por el estudio donde nace cada prenda. Mirá el video y, si preferís algo más tranquilo, activá el sonido ambiente del estudio.</p>
+        <div class="audio-player">
+          <button id="audioToggle" class="audio-btn"><i class="fa-solid fa-play"></i></button>
+          <div class="audio-info">
+            <strong>Studio Ambient</strong>
+            <span id="audioStatus">Pausado</span>
+          </div>
+          <audio id="ambientAudio" loop>
+            <source src="audio/ambient-studio.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== JOURNAL ===== -->
+  <section id="journal" class="journal section-pad">
+    <div class="section-heading">
+      <div><p class="eyebrow">04 — THE JOURNAL</p><h2>Ideas para <em>usar.</em></h2></div>
+      <a href="#contact" class="text-link">Ver todos los artículos <i class="fa-solid fa-arrow-up-right"></i></a>
+    </div>
+    <div class="journal-grid">
+      <article>
+        <div class="journal-photo photo-one"></div>
+        <p class="eyebrow">STYLE GUIDE / 06.24.26</p>
+        <h3>Cómo construir un uniforme que sea todo menos uniforme.</h3>
+      </article>
+      <article>
+        <div class="journal-photo photo-two"></div>
+        <p class="eyebrow">MATERIALS / 06.12.26</p>
+        <h3>El algodón que elegimos y por qué importa.</h3>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== FAQ / COLLAPSIBLE ===== -->
+  <section class="faq section-pad">
+    <div><p class="eyebrow">05 — PREGUNTAS FRECUENTES</p><h2>¿Algo más?</h2></div>
+    <div class="faq-list" id="faqList">
+      <div class="faq-item">
+        <button data-faq="0">¿Cómo elijo mi talle? <span>+</span></button>
+        <p>Revisá la guía de talles en el panel lateral (ícono de brújula, arriba a la derecha) para encontrar tu medida exacta.</p>
+      </div>
+      <div class="faq-item">
+        <button data-faq="1">¿Cuánto tarda el envío? <span>+</span></button>
+        <p>Entre 3 y 7 días hábiles dentro de Argentina, según la localidad de entrega.</p>
+      </div>
+      <div class="faq-item">
+        <button data-faq="2">¿Puedo cambiar mi compra? <span>+</span></button>
+        <p>Sí, tenés 30 días desde la recepción para cambios sin cargo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACTO (obligatorio, formulario completo) ===== -->
+  <section id="contact" class="contact section-pad">
+    <p class="eyebrow">06 — HABLEMOS</p>
+    <div class="contact-content">
+      <div class="contact-intro">
+        <h2>Contactanos.</h2>
+        <p>Contanos qué necesitás y te respondemos a la brevedad. También podés escribirnos por Instagram.</p>
+      </div>
+
+      <form id="contactForm" class="contact-form" novalidate>
+        <div class="form-row">
+          <label for="fullname">Nombre y apellido</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Ej: Juana Pérez" required>
+          <span class="form-error" id="err-fullname"></span>
+        </div>
+        <div class="form-row">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="Ej: 11 5555 5555" required>
+          <span class="form-error" id="err-phone"></span>
+        </div>
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Ej: vos@mail.com" required>
+          <span class="form-error" id="err-email"></span>
+        </div>
+        <div class="form-row">
+          <label for="comments">Comentarios</label>
+          <textarea id="comments" name="comments" rows="4" placeholder="Contanos en qué te podemos ayudar" required></textarea>
+          <span class="form-error" id="err-comments"></span>
+        </div>
+        <button type="submit" class="dark-button light">Enviar mensaje <span><i class="fa-solid fa-arrow-up-right"></i></span></button>
+        <p class="form-success" id="formSuccess" hidden><i class="fa-solid fa-circle-check"></i> ¡Gracias! Recibimos tu mensaje.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="footer-top">
+      <a href="#inicio" class="wordmark">anything<span>.</span></a>
+      <div class="footer-apps">
+        <span>Descargá la app</span>
+        <a href="#" aria-label="Disponible en App Store"><i class="fa-brands fa-apple"></i> App Store</a>
+        <a href="#" aria-label="Disponible en Google Play"><i class="fa-brands fa-android"></i> Google Play</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" aria-label="Pinterest"><i class="fa-brands fa-pinterest"></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>Buenos Aires — Argentina</p>
+      <p>© 2026 Anything Studio</p>
+
+
+    <!-- Modal Detalle Producto -->
+    <div id="productModal" class="product-modal" hidden>
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <button class="modal-close" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modal-body">
+          <div class="product-carousel modal-carousel" id="modalCarousel">
+            <div class="carousel-track" id="modalTrack"></div>
+            <button class="carousel-arrow prev" id="modalPrev" aria-label="Imagen anterior"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="carousel-arrow next" id="modalNext" aria-label="Imagen siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+          </div>
+          <div class="carousel-dots" id="modalDots"></div>
+          <div class="modal-info-block">
+            <h2 id="modalName"></h2>
+            <p id="modalInfo" class="modal-info"></p>
+            <p id="modalDescription" class="modal-description"></p>
+            <strong id="modalPrice" class="modal-price"></strong>
+            <div class="modal-actions">
+              <button class="dark-button modal-add-btn">Agregar al carrito <span><i class="fa-solid fa-bag-shopping"></i></span></button>
+              <button class="modal-fav-btn" id="modalFavBtn" aria-label="Agregar a favoritos"><i class="fa-regular fa-heart"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Checkout (pasarela de pago — demostración estética) -->
+    <div id="checkoutModal" class="product-modal checkout-modal" hidden>
+      <div class="modal-overlay"></div>
+      <div class="modal-content checkout-content">
+        <button class="modal-close" id="checkoutClose" aria-label="Cerrar checkout"><i class="fa-solid fa-xmark"></i></button>
+
+        <div class="modal-body checkout-body" id="checkoutOrderView">
+          <div class="checkout-summary">
+            <h3>Tu pedido</h3>
+            <ul class="checkout-items" id="checkoutItems"></ul>
+            <div class="checkout-total-row">
+              <span>Envío</span>
+              <span>Gratis</span>
+            </div>
+            <div class="checkout-total-row checkout-total-final">
+              <strong>Total</strong>
+              <strong id="checkoutTotal">$0</strong>
+            </div>
+          </div>
+
+          <form class="checkout-form" id="checkoutForm" novalidate>
+            <h3>Datos de envío</h3>
+            <div class="form-row">
+              <label for="ckName">Nombre y apellido</label>
+              <input type="text" id="ckName" placeholder="Ej: Juana Pérez" required>
+              <span class="form-error" id="err-ckName"></span>
+            </div>
+            <div class="form-row">
+              <label for="ckEmail">Email</label>
+              <input type="email" id="ckEmail" placeholder="Ej: vos@mail.com" required>
+              <span class="form-error" id="err-ckEmail"></span>
+            </div>
+            <div class="checkout-form-grid">
+              <div class="form-row">
+                <label for="ckAddress">Dirección</label>
+                <input type="text" id="ckAddress" placeholder="Calle 123" required>
+                <span class="form-error" id="err-ckAddress"></span>
+              </div>
+              <div class="form-row">
+                <label for="ckCity">Ciudad</label>
+                <input type="text" id="ckCity" placeholder="Buenos Aires" required>
+                <span class="form-error" id="err-ckCity"></span>
+              </div>
+            </div>
+
+            <h3>Pago</h3>
+            <div class="form-row">
+              <label for="ckCardNumber">Número de tarjeta</label>
+              <div class="card-input-wrap">
+                <input type="text" id="ckCardNumber" placeholder="0000 0000 0000 0000" inputmode="numeric" maxlength="19" required>
+                <i class="fa-brands fa-cc-visa card-brand-icon" id="cardBrandIcon" hidden></i>
+              </div>
+              <span class="form-error" id="err-ckCardNumber"></span>
+            </div>
+            <div class="form-row">
+              <label for="ckCardName">Titular de la tarjeta</label>
+              <input type="text" id="ckCardName" placeholder="Como figura en la tarjeta" required>
+              <span class="form-error" id="err-ckCardName"></span>
+            </div>
+            <div class="checkout-form-grid">
+              <div class="form-row">
+                <label for="ckExpiry">Vencimiento</label>
+                <input type="text" id="ckExpiry" placeholder="MM/AA" inputmode="numeric" maxlength="5" required>
+                <span class="form-error" id="err-ckExpiry"></span>
+              </div>
+              <div class="form-row">
+                <label for="ckCvv">CVV</label>
+                <input type="text" id="ckCvv" placeholder="123" inputmode="numeric" maxlength="4" required>
+                <span class="form-error" id="err-ckCvv"></span>
+              </div>
+            </div>
+
+            <button type="submit" class="dark-button light checkout-pay-btn" id="checkoutPayBtn">
+              <span class="btn-label">Pagar <span id="checkoutPayTotal">$0</span></span>
+              <span class="btn-spinner"><i class="fa-solid fa-circle-notch fa-spin"></i> Procesando pago...</span>
+            </button>
+            <p class="checkout-secure-note"><i class="fa-solid fa-lock"></i> Pago simulado — demostración estética, no se procesan datos reales.</p>
+          </form>
+        </div>
+
+        <div class="checkout-success" id="checkoutSuccessView" hidden>
+          <div class="success-check"><i class="fa-solid fa-check"></i></div>
+          <h2>¡Compra confirmada!</h2>
+          <p>Pedido <strong id="successOrderNumber"></strong></p>
+          <p class="success-detail">Te enviamos la confirmación a <strong id="successEmail"></strong>. Llega entre 3 y 7 días hábiles.</p>
+          <button class="dark-button" id="checkoutContinueBtn">Seguir comprando <span><i class="fa-solid fa-arrow-up-right"></i></span></button>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </footer>
+</main>
+
+<script src="js/script.js"></script>
+</body>
+</html>

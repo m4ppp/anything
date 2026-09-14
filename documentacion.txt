@@ -1,0 +1,85 @@
+TRABAJO PRÁCTICO INTEGRADOR — DOCUMENTACIÓN DEL PROYECTO
+==========================================================
+
+Nombre del sitio: Anything Studio
+Temática: E-commerce / tienda de indumentaria (moda unisex, esenciales de vestir)
+
+--------------------------------------------------------
+1. DESCRIPCIÓN GENERAL
+--------------------------------------------------------
+Anything Studio es el sitio web de una marca de ropa ficticia. El sitio
+presenta la colección de productos, la propuesta de marca, contenido
+audiovisual del "lookbook", una sección de novedades (journal), preguntas
+frecuentes y un formulario de contacto. El proyecto fue adaptado a HTML,
+CSS y JavaScript puros (sin frameworks ni TypeScript), cumpliendo con
+todos los contenidos obligatorios de la consigna.
+
+--------------------------------------------------------
+2. HERRAMIENTAS Y TECNOLOGÍAS UTILIZADAS
+--------------------------------------------------------
+- HTML5 semántico (header, nav, aside, main, section, footer).
+- CSS3 puro, con Flexbox y CSS Grid para el layout, media queries para
+  el diseño responsive y variables CSS (:root) para la paleta de colores.
+- JavaScript (ES6) sin librerías ni frameworks, organizado con
+  addEventListener y funciones puras.
+- Font Awesome (CDN) para los íconos, incluyendo íconos de iOS
+  (App Store / Apple) y Android (Google Play).
+- Video y audio generados para el proyecto (formato MP4 y MP3),
+  alojados localmente en las carpetas /video y /audio.
+
+--------------------------------------------------------
+3. ESTRUCTURA DE CARPETAS
+--------------------------------------------------------
+anything-studio/
+ ├─ index.html
+ ├─ documentacion.txt
+ ├─ css/
+ │   └─ style.css
+ ├─ js/
+ │   └─ script.js
+ ├─ img/
+ │   ├─ anything-hero.png
+ │   └─ favicon.svg
+ ├─ video/
+ │   └─ lookbook.mp4
+ └─ audio/
+     └─ ambient-studio.mp3
+
+--------------------------------------------------------
+4. CONTENIDOS OBLIGATORIOS Y DÓNDE ENCONTRARLOS
+--------------------------------------------------------
+- Estructura HTML y estilos: index.html + css/style.css.
+- Diseño responsive: media queries en style.css (breakpoints 900px y
+  700px), probado en escritorio, tablet y celular.
+- Navbar: barra superior fija con logo, links de navegación y acciones
+  (buscar, cuenta, carrito).
+- Sidebar: panel lateral deslizable (ícono de brújula en el navbar) con
+  resumen del carrito, categorías, guía de talles y redes sociales.
+- Formulario de contacto: sección "Contactanos", con nombre y apellido,
+  teléfono, email y comentarios, validado con JavaScript.
+- Botones: botón de colección, agregar al producto, favoritos, filtros,
+  play/pausa de video y audio, envío de formulario, apertura de sidebar.
+- Audio y video: sección "El lookbook en movimiento", con un video
+  autoreproducido en loop y un reproductor de audio ambiente.
+- Cards / Collapsible: tarjetas de producto (cards) en la sección Shop y
+  acordeón de preguntas frecuentes (collapsible).
+- Íconos: Font Awesome en toda la interfaz, incluyendo íconos de Apple
+  (iOS) y Android en el pie de página.
+- JavaScript (mínimo 3 funcionalidades — se implementaron 8):
+    1. Filtro de productos por categoría.
+    2. Carrito de compras con contador dinámico.
+    3. Menú hamburguesa para mobile.
+    4. Apertura/cierre del sidebar.
+    5. Acordeón (collapsible) de preguntas frecuentes.
+    6. Control personalizado de reproducción del video.
+    7. Control de reproducción del audio ambiente.
+    8. Validación del formulario de contacto con mensajes de error.
+
+--------------------------------------------------------
+5. NOTAS
+--------------------------------------------------------
+El video y el audio incluidos son recursos generados para este proyecto
+académico, a modo de contenido multimedia de ejemplo. Las imágenes de
+producto se cargan desde una CDN pública (Unsplash) para mantener el
+peso del proyecto liviano; si se requiere trabajar 100% offline, pueden
+reemplazarse por archivos locales en la carpeta /img.
