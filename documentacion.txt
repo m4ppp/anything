@@ -2,7 +2,9 @@ TRABAJO PRÁCTICO INTEGRADOR — DOCUMENTACIÓN DEL PROYECTO
 ==========================================================
 
 Nombre del sitio: Anything Studio
+Integrantes del proyecto: Thiago Loyola, Exequiel Pedalino y Jeyk Berrondo
 Temática: E-commerce / tienda de indumentaria (moda unisex, esenciales de vestir)
+
 
 --------------------------------------------------------
 1. DESCRIPCIÓN GENERAL
